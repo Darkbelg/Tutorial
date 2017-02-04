@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+body,html{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    padding: 0;
+    margin: 0;
+}
+nav a,
+nav a::before{
+    position: relative;
+    display: block;
+    padding: 1em;
+    color: #fff;
+    font-size: 3em;
+    overflow: hidden;
+    background: transparent;
+    text-align: center;
+}
+nav a:hover{
+    background: #fff;
+    color: #000;
+}
+nav a::before{
+    position: absolute;
+    display: block;
+    content: "";
+    color: #000;
+    font-size: 1em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    background: no-repeat center center;
+    background-size: 100% auto;
+    opacity: 0;
+    transition: background-size 2s,
+    opacity .5s;
+}
+nav a:hover::before{
+    opacity: 1;
+    background-size: 150% auto;
+}
+nav a:nth-child(1)::before{
+    content: "One";
+    background-image: url(img/zico1.jpg);
+}
+nav a:nth-child(2)::before{
+    content: "Two";
+    background-image: url(img/zico2.jpg);
+}
+nav a:nth-child(3)::before{
+    content: "Three";
+    background-image: url(img/zico3.jpg);
+}
+nav a:nth-child(4)::before{
+    content: "Four";
+    background-image: url(img/zico4.jpg);
+}

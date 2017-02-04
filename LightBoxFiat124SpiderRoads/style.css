@@ -1,0 +1,27 @@
+@charset "utf-8";
+body,html{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    padding: 0;
+    margin: 0;
+}
+main{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+main{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(image/image.jpg);
+    -webkit-animation: animatebackground infinite ease-in-out 25s;
+}
+@-webkit-keyframes animatebackground{
+    0%{background-size: 100% auto;}
+    50%{background-size: 200% auto;}
+    100%{background-size: 100% auto;}
+}
