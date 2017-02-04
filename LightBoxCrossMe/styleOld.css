@@ -1,0 +1,59 @@
+@charset "utf-8";
+body,
+html,
+#loading {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+body main {
+    transition: opacity 2s;
+    opacity: 0;
+}
+
+body.loaded main {
+    opacity: 1;
+}
+
+body.loaded #loading {
+    display: none;
+}
+
+#loading > * {
+    display: block;
+    position: absolute;
+    top: 40%;
+    background: #f00;
+    animation: loading infinite ease-out 2.5s;
+
+}
+
+#loading > *:nth-child(1) {
+    transform-origin: 100% 50%;
+    left: 50%;
+}
+
+#loading > *:nth-child(2) {
+    transform-origin: 0 50%;
+    right: 49%;
+}
+
+@keyframes loading {
+    from {
+        width: 0;
+        height: 10%;
+        filter: blur(0);
+        opacity: 1;
+    }
+    to {
+        width: 50%;
+        height: 5%;
+        filter: blur(15px);
+        opacity: 0;
+    }
+}
