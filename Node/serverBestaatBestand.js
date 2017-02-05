@@ -10,19 +10,19 @@ var port = process.argv[2] || 8888,
 var handle404 = function (req, resp) {
     resp.writeHead(404);
     console.log(404);
-    fs.createReadStream(path.join(publicDir,'404.html')).pipe(resp);
+    resp.end('404');
 };
 
 var handle500 = function (req, resp) {
     resp.writeHead(500);
     console.log(500);
-    fs.createReadStream(path.join(publicDir,'500.html')).pipe(resp);
+    resp.end('500');
 };
 
 var handle200 = function (file, resp) {
     resp.writeHead(200);
     console.log('200: ' + file);
-    fs.createReadStream(file).pipe(resp);
+    resp.end(file);
 };
 
 
