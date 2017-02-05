@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* Een te hoog contrast is vermoeiend voor de ogen */
+    /* voor kleuren met een witte achtergrond.*/
+    /* color: #333;*/
+    color: #222;
+
+    font-family: "Arial",sans-serif;
+}
+
+p{
+    /* Vermijd het gewicht 100 of 200*/
+    font-weight: 400;
+
+    /*Beste regelhoogte is tussen 130 en 160%*/
+     line-height: 130%;
+   /*  line-height: 160%;*/
+
+    /*Beste width voor een paragraaph is tussen 50 en 75 karakters*/
+    width: 50ch;
+   /* width: 75ch;*/
+
+}
+.bodycopy{
+    
+   /* font grootte is debateerbaar maar 24px(1.5em als bovenliggende 16px is) is goed.*/
+   font-size: 1.5em;
+   /*Beste width voor een bodycopy is tussen 35 en 70 karakters*/
+    width: 35ch;
+   /* width: 70ch;*/
+  /*Beste regelhoogte is 1.5em te hoog is niet goed en degradeert de leesbaarheid*/
+     line-height: 1.5em;
+
+}
+@media tv{
+    body{
+        /* lichtgrijze tekst i.p.v. puur wit voor tv*/
+        color: #eeeeee;
+    }
+}
