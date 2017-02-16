@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expressies</title>
+    <script>
+        var origTekst = "Internet Explorer is beter dan FireFox, zei de internet EXPLORER fan";
+        var vbTekst4 = "https://www.youtube.com/watch?v=wEkLHC7l25w";
+        var re = /\b\w+\b/g;
+
+        var nieuweTekst = origTekst = origTekst.replace(re, function (woord) {
+            return woord.substring(0, 1).toUpperCase() + woord.substring(1);
+        });
+        var re = /^(?:https:\/\/)(.*?)\/(.*)/i;
+
+        nadien = vbTekst4.replace(re, function ($0, $1, $2) {
+            return "het gedeelte " + $2 + " volgt op het domein " + $1 + "";
+        })
+
+        console.log(origTekst + "\n" + nieuweTekst + "\n" + nadien);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
