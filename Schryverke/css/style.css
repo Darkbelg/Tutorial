@@ -7,10 +7,12 @@ body{
     font-family: "Arial", sans-serif;
     line-height: 130%;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 .wrapper{
-    width: 1200px;
-    margin: auto;
+  /*  width: 1200px;
+    margin: auto;*/
 }
 nav{
     float: right;
@@ -37,4 +39,17 @@ dd,dt{
 }
 dt{
     margin-top: 0.5em;
+}
+img{
+    border-top-color: #333;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 100%;
+    height: auto;
+    /*overflow: hidden;*/
+}
+article{
+
+    width: 1200px;
+    margin: auto
 }
