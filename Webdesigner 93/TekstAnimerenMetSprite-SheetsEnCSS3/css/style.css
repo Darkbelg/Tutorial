@@ -1,0 +1,26 @@
+@charset "UTF-8";
+body {
+    background: #000;
+    margin: 0;
+    padding: 25% 0 0 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.reveal {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    background-image: url("../images/stijn.png");
+    animation: play 2.0s steps(19) infinite;
+}
+
+@keyframes play {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -5700px;
+    }
+}
