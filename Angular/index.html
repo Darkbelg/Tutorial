@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <script src="js/angular.js">
+
+    </script>
+    <script src="js/teamAppModule.js"></script>
+
+</head>
+<body data-ng-app="myTeamApp">
+<section data-ng-controller="teamCtrl">
+    <h1 data-ng-bind="pageTitle">
+
+    </h1>
+    <label for="mensen"> Voer een naam in:
+        <input id="mensen" type="text" data-ng-model="$scope"/></label>
+    <button data-ng-click="add()">Toevoegen</button>
+
+    <ul>
+        <li data-ng-repeat="person in people">
+            <h2>{{person}}</h2>
+            <button data-ng-click="remove($index)">Delete</button>
+        </li>
+    </ul>
+
+</section>
+</body>
+</html>
