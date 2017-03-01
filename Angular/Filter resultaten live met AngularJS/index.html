@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Listing app</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="services/listingServices.js"></script>
+    <script src="script/modules/listing.js"></script>
+    <script src="script/myApp.js"></script>
+</head>
+<body data-ng-app="listingApp">
+<section data-ng-controller="listingCtrl">
+    <h1>{{title}}</h1>
+    <ul>
+        <li data-ng-repeat="article in articles | orderBy:'pubDate':true | limitTo: viewLimit">
+            <h2>{{article.title}}</h2>
+            <p>{{article.pubDate|date:'EEEE dd MMMM yyyy'}}</p>
+            <p>{{article.description}}</p>
+        </li>
+    </ul>
+</section>
+</body>
+</html>
