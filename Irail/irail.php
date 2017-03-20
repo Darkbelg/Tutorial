@@ -13,7 +13,7 @@ class LezenData
 {
     private $arrContextOptions = array(
         "ssl" => array(
-            "cafile" => "C:/xampp/perl/vendor/lib/Mozilla/CA/cacert.pem",
+            "cafile" => "cacert.pem",
             "verify_peer" => true,
             "verify_peer_name" => true,
         ),
@@ -22,8 +22,7 @@ class LezenData
     public function get()
     {
 
-
-        $url = "https://api.irail.be/stations?q=Amsterdam&format=json";
+		$url = "https://api.irail.be/stations?format=json";
         $json = file_get_contents($url, false, stream_context_create($this->arrContextOptions));
         $obj = json_decode($json, true);
         $stations = array();
@@ -36,6 +35,15 @@ class LezenData
         }
 
         return $stations;
+    }
+
+	public function getStations()
+	{
+		$url = "https://irail.be/stations/NMBS";
+		$json = file_get_contents($url, false, stream_context_create($this->arrContextOptions));
+		$obj = json_decode($json, true);
+
+		return $obj;
     }
 
     public function liveBoard($station)
@@ -60,11 +68,106 @@ class LezenData
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+
 <h1>Welcome</h1>
 <?php
 $obj = new LezenData();
-$data = $obj->get();
+//$data = $obj->get();
+//
+$ch=curl_init();
+//
+//
+$stad= "Brussel";
+curl_setopt($ch,CURLOPT_URL,"https://irail.be/stations/NMBS?q=" . $stad);
+$fp = fopen("data.txt","w");
+//curl_setopt($ch,CURLOPT_HEADER,"q=Brussel");
+curl_setopt($ch, CURLOPT_FILE, $fp);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+//
+
+
+curl_exec($ch);
+$output = json_decode(file_get_contents("data.txt",true),true);
+
+//$output = json_decode();
+//$objstaion = json_decode($output,true);
+//var_dump($objstaion);
+////var_dump($ch);
+////print_r($ch);
+////print($ch);
+////print($ch["@graph"]);
+//?>
+<ul>
+
+    <?php
+    foreach ($output["@graph"] as $station){
+    ?>
+    <li>
+        <?php
+            print($station["name"])
+        ?>
+    </li>
+    <?php
+    }
+    ?>
+    <li>
+        <?php
+		var_dump($output);
+
+		?>
+    </li> <li>
+        <?php
+		print_r($output);
+        ?>
+    </li> <li>
+        <?php
+		print ($output);
+        ?>
+    </li>
+<li>
+        <?php
+		var_dump($ch);
+        ?>
+    </li>
+</ul>
+
+<?php
+//
+//
+//
+////print_r(curl_getinfo($ch));
+////print file_get_contents('https://irail.be/stations/NMBS');
+//
+curl_close($ch);
+fclose($fp);
+
+//$ch = curl_init("https://irail.be/stations/NMBS?q=Brussel");
+//$fp = fopen("example_homepage.txt", "w");
+//
+//curl_setopt($ch, CURLOPT_FILE, $fp);
+//curl_setopt($ch, CURLOPT_HEADER, 0);
+//
+//curl_exec($ch);
+//curl_close($ch);
+//fclose($fp);
+
+//curl_init("https://irail.be/stations/NMBS");
+//curl_exec()
+
 ?>
+<ul>
+    <li>
+        <?php
+        $objstations = $obj->getStations();
+        var_dump($objstations);
+
+
+        ?>
+    </li>
+</ul>
+
+
 <ul>
 <!--    <li>-->
 <!--        --><?php
