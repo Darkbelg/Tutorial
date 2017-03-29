@@ -13,11 +13,11 @@
 <section data-ng-controller="listingCtrl">
     <h1>{{title}}</h1>
     <div class="controls">
-        <input type="text" data-ng-model="filters.query" placeholder="search news" />
+        <input type="text" data-ng-model="filters.qeury" placeholder="search news" />
         <div class="clear">
             <div data-ng-repeat="tag in filters.tags" class="checkbox">
                 <label for="{{tag.label}}">{{tag.label}}</label>
-                <input id="{{tag.label}}" type="checkbox" data-ng-checked="tag.selected"/>
+                <input id="{{tag.label}}" type="checkbox" data-ng-model="tag.selected"/>
             </div>
         </div>
         <label for="sortBy">Sort by</label><select name="sortBy" id="sortBy" data-ng-model="descending">
@@ -25,15 +25,20 @@
         <option value="false">Oldest first</option>
     </select>
     </div>
+    <p>{{filtered.length}} articles of {{articles.length}} match your search.</p>
         <ul>
             <!--<li data-ng-repeat="article in articles|filter:qeury| orderBy:'pubDate':descending|limitTo:viewLimit">-->
-            <li data-ng-repeat="article in articles|newsFilter:filters| orderBy:'pubDate':descending|limitTo:viewLimit">
+            <!--<li data-ng-repeat="article in articles|newsFilter:filters| orderBy:'pubDate':descending|limitTo:viewLimit">-->
+            <li data-ng-repeat="article in filtered = (articles|newsFilter:filters)| orderBy:'pubDate':descending|limitTo:viewLimit">
                 <h2>{{article.title}}</h2>
                 <p>{{article.pubDate|date:'dd/MM/yy'}}</p>
                 <p>{{article.description}}</p>
             </li>
         </ul>
-    <button data-ng-click="viewMore(2)" data-ng-hide="viewLimit >= articles.length">View More</button>
+    <button data-ng-click="viewMore(2)" data-ng-hide="viewLimit >= filtered.length">View More</button>
+</section>
+<section data-ng-controller="testCtrl">
+    <h2>{{dataFromRoot}}</h2>
 </section>
 </body>
 </html>

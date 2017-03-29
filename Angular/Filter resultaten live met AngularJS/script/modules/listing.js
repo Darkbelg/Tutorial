@@ -10,7 +10,7 @@ angular.module('listing.module', ['listing.services','listing.filters']).control
             console.log($scope.articles);
         }
         data.get('article.json', $scope.setData);
-        $scope.viewLimit = 1;
+        $scope.viewLimit = 5;
         $scope.viewMore = function (num) {
             $scope.viewLimit += num;
         }
@@ -38,4 +38,15 @@ angular.module('listing.module', ['listing.services','listing.filters']).control
                 }
             ]
         }
-    }]);
+
+    }])
+            .controller('testCtrl',['$scope','$rootScope',function ($scope, $rootScope) {
+                $scope.dataFromRoot = $rootScope.testValue;
+                //alls de data in rootscope veranderd
+                $rootScope.$watch('testData',function (newValue,oldValue) {
+                    //$rootScope.testData has been updated
+                })
+            }])
+            .run(['$rootScope',function ($rootScope){
+                $rootScope.testValue = "I am in rootScope";
+            }]);
