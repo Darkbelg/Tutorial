@@ -1,0 +1,54 @@
+body,html{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    padding: 0;
+    margin: 0;
+}
+main{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+main article{
+    position: absolute;
+    height: 0;
+    width: 100%;
+    padding-top: 1em;
+    overflow: auto;
+}
+main article:target{
+    animation: open linear 1s forwards;
+}
+main>article:nth-of-type(1){
+    background: blueviolet;
+}
+main>article:nth-of-type(2){
+    background: greenyellow;
+}
+main>article:nth-of-type(3){
+    background: darkred;
+}
+nav{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 9999;
+    background: #000;
+}
+@keyframes open {
+    0%{
+        height: 0;
+        border: 0;
+        top:50%;
+        width: 0;
+        display: block;
+    }
+    100%{
+        top:0;
+        height: 100%;
+    }
+}
