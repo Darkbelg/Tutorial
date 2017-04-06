@@ -1,0 +1,102 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../iron-list/iron-list.html">
+<link rel="import" href="app-autocomplete-item.html">
+
+<!--
+`app-autocomplete`
+autocomplete
+
+@demo demo/index.html 
+-->
+
+<dom-module id="app-autocomplete">
+    <template>
+        <style>
+            :host {
+                display: block;
+                position: relative;
+            }
+            iron-list{
+                height: 200px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin-top: -8px;
+                z-index: 1;
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
+        //header
+        <paper-input id="search" label="[[label]]" value="{{term}}">
+
+            <paper-icon-button suffix icon="clear" on-tap="clearText"
+                               disabled$="[[!hasTyped(term)]]"></paper-icon-button>
+        </paper-input>
+
+        <iron-ajax auto url="[[url]]" handle-as="json" last-response="{{data}}"></iron-ajax>
+
+        <iron-list items="[[filteredData]]" as="item" selection-enabled hidden$="[[!hasTyped(term)]]" on-selected-item-changed="selectedItemChanged">
+            <template>
+                <div class="entry" tabindex$="{{tabIndex}}" item="{{item}}">{{item.name}}</div>
+            </template>
+        </iron-list>
+
+        <template is="dom-repeat" items="{{selectedItems}}">
+            <div>
+                <app-autocomplete-item on-remove="removeFromSelectedItems" id="items" item="{{ item }}" name="{{ name }}"></app-autocomplete-item>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'app-autocomplete',
+
+            properties: {
+                label: {
+                    type: String,
+                    value: 'Search',
+                },
+                data: {
+                    type: Object,
+                    value: []
+                },
+                filteredData:{
+                    type:Object,
+                    computed:'filteredItems(data,term)'
+                },
+                selectedItems:{
+                    type:Object,
+                    value:[]
+                }
+            },
+            clearText: function (e) {
+                this.term = "";
+
+            },
+            hasTyped: function (term) {
+                return term !== "" ? true : false;
+            },
+            filteredItems:function (data, query) {
+                return data.filter(function (item) {
+                    if (item.name.toLowerCase().indexOf(query)!==-1){
+                        return true;
+                    }
+                    return false;
+                });
+            },selectedItemChanged:function (e,item) {
+                if(item.value !== null){
+                    this.push('selectedItems',item.value);
+                }
+            },removeFromSelectedItems: function(e, item) {
+                var index = this.selectedItems.indexOf(item);
+                this.splice('selectedItems', index, 1);
+            }
+        });
+    </script>
+</dom-module>
