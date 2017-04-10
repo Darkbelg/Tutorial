@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Typography with media queries only</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/flowtype.js"></script>
+
+</head>
+
+<body>
+	<div id="page-wrap">
+
+	<h2>Responsive Type (media queries)</h2>
+		
+     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean mi vitae est.</p>
+
+     <img src="images/example.jpg">
+              
+    <h2>Summary</h2>
+    
+     <p>Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.</p>
+
+     <p>Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.</p>
+
+        <h1 id="fittext1">Squeeze with FitText</h1>
+        <h1 id="fittext2">Squeeze with FitText</h1>
+        <h1 id="fittext3">Squeeze with FitText</h1>
+   </section>
+    
+	</div>
+    <script>
+        $('html').flowtype({
+            minimum:500,
+            maximum:1200,
+            minFont : 12,
+            maxFont : 40,
+            fontRatio : 45
+        });
+    $("#fittext1").fitText();
+    $("#fittext2").fitText(1.2);
+    $("#fittext3").fitText(1.1,{minFontSize:'50px',maxFontSize:'75px'});
+    </script>
+</body>
+</html>

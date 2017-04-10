@@ -1,0 +1,145 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif|Quando);
+*{
+    margin:0;
+    padding: 0;
+}
+html{
+    font-size: 18px;
+    font-family: "Droid Serif",serif;
+    background-color: #e7bb4a;
+    color: #333;
+}
+h2{
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-family: 'Quando',serif;
+    color: #a2422a;
+}
+p{
+    line-height: 1.45;
+    margin-bottom: 20px;
+}
+#page-wrap{
+    width: 60%;
+    margin: 100px auto;
+}
+img{
+    max-width: 90%;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 8px #333333;
+}
+/* ======== 20em(320px)===========*/
+@media only screen and (min-width: 20em){
+    html{
+        font-size: 12px;
+    }
+    #page-wrap{
+     width: 85%;
+        margin: 1rem auto;
+    }
+}
+/* ======== 30em(480px)===========*/
+@media only screen and (min-width: 30em){
+    html{
+        font-size: 14px;
+    }
+    #page-wrap{
+     width: 80%;
+        margin: 1.5rem auto;
+    }
+}
+/* ======== 37.5em(600px)===========*/
+@media only screen and (min-width: 37.5em){
+    html{
+        font-size: 16px;
+    }
+    #page-wrap{
+     width: 75%;
+        margin: 2rem auto;
+    }
+}
+/* ======== 48em(768px)===========*/
+@media only screen and (min-width: 48em){
+    html{
+        font-size: 18px;
+    }
+    #page-wrap{
+     width: 65%;
+        margin: 2.5rem auto;
+    }
+}
+/* ======== 56.25em(900px)===========*/
+@media only screen and (min-width: 56.25em){
+    html{
+        font-size: 20px;
+    }
+    #page-wrap{
+     width: 60%;
+        margin: 3rem auto;
+    }
+}
+/* ======== 68.75em(1100px)===========*/
+@media only screen and (min-width: 68.75em){
+    html{
+        font-size: 22px;
+    }
+    #page-wrap{
+     width: 55%;
+        margin: 3.5rem auto;
+    }
+}
+/* ======== 81.25em(1300px)===========*/
+@media only screen and (min-width: 81.25em){
+    html{
+        font-size: 24px;
+    }
+    #page-wrap{
+     width: 50%;
+        margin: 4rem auto;
+    }
+}
+@media only screen and (min-width: 20em){
+    #page-wrap{
+        width: 85%;
+        margin:1em auto;
+    }
+}
+@media only screen and (min-width: 30em){
+    #page-wrap{
+        width: 80%;
+        margin:1.5em auto;
+    }
+}
+@media only screen and (min-width: 37.8em){
+    #page-wrap{
+        width: 75%;
+        margin:2em auto;
+    }
+}
+@media only screen and (min-width: 48em){
+    #page-wrap{
+        width: 70%;
+        margin:2.5em auto;
+    }
+}
+@media only screen and (min-width: 56.25em){
+    #page-wrap{
+        width: 65%;
+        margin:3em auto;
+    }
+}
+/*h1{*/
+    /*font-size: XXpx;*/
+    /*font-size: YYrem;*/
+/*}*/
+
+/*h1{*/
+    /*font-size: 5.9vw;*/
+/*}*/
+/*h2{*/
+    /*font-size: 3.0vh;*/
+/*}*/
+/*p{*/
+    /*font-size: 2vmin;*/
+/*}*/
