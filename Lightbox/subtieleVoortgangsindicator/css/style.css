@@ -1,0 +1,22 @@
+@charset "UTF-8";
+.progress-container{
+    position: fixed;
+    top:0;
+    left:50%;
+    width:600px;
+    padding:10px;
+    background-color: #eee;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.progress-bar{
+    width: 0%;
+    height: 10px;
+    background-color: #df5b57;
+    -webkit-transition: width .25s ease;
+    transition: width .25s ease;
+}
+.article{
+    margin-top:80vh;
+    margin-bottom: 80vh;
+}
