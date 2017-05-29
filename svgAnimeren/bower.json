@@ -1,0 +1,13 @@
+{
+  "name": "svgAnimeren",
+  "homepage": "https://github.com/Darkbelg/Tutorial",
+  "authors": [
+    "Darkbelg <stijn.sagaert@outlook.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^1.19.1"
+  }
+}
