@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maak je eigen themes met css-variabelen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Creating customisable themes with CSS Variables</h1>
+        <p>Explore the new powers arriving on the web with CSS Variables in both CSS and JavaScript!</p>
+    </div>
+</header>
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <article>
+            <h2>The tutorial</h2>
+            <p>As developers the ability to store common values for reuse is extremely valuable, it saves time in both authoring and maintaining a codebase. This is why you’ll find variables a key part of any CSS pre-processor, such as Sass or LESS. The CSS Variables spec finally introduces this ability natively to CSS and there’s now a good level of browser support available to start putting them into use.</p>
+            <p>However, you may have been thinking, since CSS pre-processors have variables already and are so prevalent these days, what’s the big deal? Fuelled by this I decided to take a look at what CSS Variables will offer developers beyond simply storing values for reuse.</p>
+            <p>There are two interesting aspects I’ve found lately when working with CSS Variables. Firstly they, like all CSS, are susceptible to the cascade. This means that you can give a CSS Variable a new value and it only effect the children of that CSS rule in the document.</p>
+            <p>The second aspect is that CSS Variables can be accessed and updated by JavaScript at runtime. This means that through user actions, you could update a the styles on your site easily through a small amount of JavaScript. In this case, I’m going to look at using colour inputs to instantly update the theme of a website.</p>
+            <p><small>Demo by <a href="http://adamonishi.com">Adam Onishi</a></small></p>
+        </article>
+        <aside>
+            <h2>Select a new theme:</h2>
+            <label for="primary-theme-color">Primary color</label>
+            <input type="color" id="primary-theme-color" name="primary" value="#ffffff">
+            <label for="secondary-theme-color">Secondary color</label>
+            <input type="color" id="secondary-theme-color" name="secondary" value="#000000">
+        </aside>
+    </div>
+</main>
+<footer>
+    <div class="container">
+
+    </div>
+</footer>
+</body>
+</html>
